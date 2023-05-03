@@ -1,8 +1,8 @@
 package com.yyyxl.lottery.domain.strategy.service.draw;
 
-import cn.itedus.lottery.domain.strategy.model.aggregates.StrategyRich;
-import cn.itedus.lottery.domain.strategy.repository.IStrategyRepository;
-import cn.itedus.lottery.infrastructure.po.Award;
+import com.yyyxl.lottery.domain.strategy.model.aggregates.StrategyRich;
+import com.yyyxl.lottery.domain.strategy.repository.IStrategyRepository;
+import com.yyyxl.lottery.infrastructure.po.Award;
 
 import javax.annotation.Resource;
 

@@ -1,7 +1,7 @@
 package com.yyyxl.lottery.domain.strategy.service.draw;
 
-import cn.itedus.lottery.domain.strategy.model.req.DrawReq;
-import cn.itedus.lottery.domain.strategy.model.res.DrawResult;
+import com.yyyxl.lottery.domain.strategy.model.req.DrawReq;
+import com.yyyxl.lottery.domain.strategy.model.res.DrawResult;
 
 /**
  * @description: 抽奖执行接口
