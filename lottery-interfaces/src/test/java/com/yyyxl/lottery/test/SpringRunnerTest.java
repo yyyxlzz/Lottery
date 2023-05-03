@@ -4,6 +4,8 @@ package com.yyyxl.lottery.test;
 import com.itedus.lottery.rpc.IActivityBooth;
 import com.itedus.lottery.rpc.req.ActivityReq;
 import com.itedus.lottery.rpc.res.ActivityRes;
+import com.yyyxl.lottery.domain.strategy.model.req.DrawReq;
+import com.yyyxl.lottery.domain.strategy.service.draw.IDrawExec;
 import com.yyyxl.lottery.infrastructure.dao.IActivityDao;
 import com.yyyxl.lottery.infrastructure.po.Activity;
 import org.junit.Test;
@@ -27,6 +29,20 @@ public class SpringRunnerTest {
 
     @Resource
     private IActivityBooth activityBooth;
+
+    @Resource
+    private IDrawExec drawExec;
+
+    @Test
+    public void test_drawExec(){
+        drawExec.doDrawExec(new DrawReq("小傅哥", 10001L));
+        drawExec.doDrawExec(new DrawReq("小佳佳", 10001L));
+        drawExec.doDrawExec(new DrawReq("小蜗牛", 10001L));
+        drawExec.doDrawExec(new DrawReq("八杯水", 10001L));
+
+    }
+
+
 
     @Test
     public void test_insert(){
