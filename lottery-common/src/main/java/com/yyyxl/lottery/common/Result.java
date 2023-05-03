@@ -2,6 +2,9 @@ package com.yyyxl.lottery.common;
 
 import java.io.Serializable;
 
+/**
+ * 统一返回对象中，Code码、Info描述
+ */
 public class Result implements Serializable {
 
     private static final long serialVersionUID = -3826891916021780628L;
@@ -40,6 +43,5 @@ public class Result implements Serializable {
     public void setInfo(String info) {
         this.info = info;
     }
-
 
 }

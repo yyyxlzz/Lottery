@@ -1,5 +1,6 @@
 package com.yyyxl.lottery.domain.strategy.service.draw;
 
+import com.yyyxl.lottery.common.Constants;
 import com.yyyxl.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
 
 import javax.annotation.PostConstruct;
@@ -7,21 +8,27 @@ import javax.annotation.Resource;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * @description: 抽奖统一配置信息类
+ * @author：小傅哥，微信：fustack
+ * @date: 2021/8/28
+ * @Copyright：公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
+ */
 public class DrawConfig {
 
     @Resource
-    private IDrawAlgorithm defaultRateRandomDrawAlgorithm;
+    private IDrawAlgorithm entiretyRateRandomDrawAlgorithm;
+
     @Resource
     private IDrawAlgorithm singleRateRandomDrawAlgorithm;
 
-    // 考虑到运营可能配置的活动较多在大促期间，避免因为以后优化为多线程方式带来问题，所以处理为 ConcurrentHashMap 不过暂时这里使用 HashMap 也行
-    protected static Map<Integer, IDrawAlgorithm> drawAlgorithmMap = new ConcurrentHashMap<>();
+    /** 抽奖策略组 */
+    protected static Map<Integer, IDrawAlgorithm> drawAlgorithmGroup = new ConcurrentHashMap<>();
 
-    //  使用@PostConstruct注解修饰的init方法就会在Spring容器的启动时自动的执行
     @PostConstruct
     public void init() {
-        drawAlgorithmMap.put(1,defaultRateRandomDrawAlgorithm);
-        drawAlgorithmMap.put(2,singleRateRandomDrawAlgorithm);
+        drawAlgorithmGroup.put(Constants.StrategyMode.ENTIRETY.getCode(), entiretyRateRandomDrawAlgorithm);
+        drawAlgorithmGroup.put(Constants.StrategyMode.SINGLE.getCode(), singleRateRandomDrawAlgorithm);
     }
 
 }
