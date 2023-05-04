@@ -69,10 +69,10 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
      */
     private void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetail> strategyDetailList) {
 
-        // 非单项概率，不必存入缓存
+        /*// 非单项概率，不必存入缓存 1 2 false true
         if (!Constants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
             return;
-        }
+        }*/
 
         IDrawAlgorithm drawAlgorithm = drawAlgorithmGroup.get(strategyMode);
 
