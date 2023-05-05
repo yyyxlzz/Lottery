@@ -12,6 +12,9 @@ import javax.annotation.Resource;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 各类发奖奖品配置类
+ */
 public class GoodsConfig {
 
     /** 奖品发放策略组 */

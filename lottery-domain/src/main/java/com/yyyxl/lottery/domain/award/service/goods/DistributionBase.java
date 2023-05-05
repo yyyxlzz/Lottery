@@ -1,11 +1,8 @@
 package com.yyyxl.lottery.domain.award.service.goods;
 
-import com.yyyxl.lottery.domain.award.model.req.GoodsReq;
-import com.yyyxl.lottery.domain.award.model.res.DistributionRes;
 import com.yyyxl.lottery.domain.award.repository.IAwardRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import javax.annotation.Resource;
 
