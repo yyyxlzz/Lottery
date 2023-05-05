@@ -1,0 +1,1 @@
+package com.yyyxl.lottery.domain.award.model;
