@@ -1,4 +1,4 @@
-package com.yyyxl.lottery.domain.award.repository.impl;
+package com.yyyxl.lottery.infrastructure.repository;
 
 
 import com.yyyxl.lottery.domain.award.repository.IAwardRepository;

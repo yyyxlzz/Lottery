@@ -1,5 +1,6 @@
 package com.yyyxl.lottery.infrastructure.dao;
 
+import com.yyyxl.lottery.domain.activity.model.vo.AlterStateVO;
 import com.yyyxl.lottery.infrastructure.po.Activity;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -23,6 +24,14 @@ public interface IActivityDao {
      * @return           活动信息
      */
     Activity queryActivityById(Long activityId);
+
+    /**
+     * 变更活动状态
+     *
+     * @param alterStateVO  [activityId、beforeState、afterState]
+     * @return 更新数量
+     */
+    int alterState(AlterStateVO alterStateVO);
 
 }
 
