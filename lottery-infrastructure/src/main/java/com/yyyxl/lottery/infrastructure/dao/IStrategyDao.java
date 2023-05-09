@@ -2,11 +2,13 @@ package com.yyyxl.lottery.infrastructure.dao;
 
 import com.yyyxl.lottery.infrastructure.po.Strategy;
 import org.apache.ibatis.annotations.Mapper;
+
 /**
  * @description: 策略表DAO
  */
 @Mapper
 public interface IStrategyDao {
+
     /**
      * 查询策略配置
      *
@@ -14,6 +16,7 @@ public interface IStrategyDao {
      * @return           策略配置信息
      */
     Strategy queryStrategy(Long strategyId);
+
     /**
      * 插入策略配置
      *
