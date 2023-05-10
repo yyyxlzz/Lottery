@@ -24,4 +24,5 @@
          #{takeCount}, #{uuid}, now(), now())
     </insert>
 
+
 </mapper>

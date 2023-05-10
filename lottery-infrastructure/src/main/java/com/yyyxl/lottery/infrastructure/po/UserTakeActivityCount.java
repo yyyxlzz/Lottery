@@ -2,11 +2,7 @@ package com.yyyxl.lottery.infrastructure.po;
 
 import java.util.Date;
 
-/**
- * @description: 用户领取活动表
- */
-public class UserTakeActivity {
-
+public class UserTakeActivityCount {
     /**
      * 自增ID
      */
@@ -16,29 +12,17 @@ public class UserTakeActivity {
      */
     private String uId;
     /**
-     * 活动领取ID
-     */
-    private Long takeId;
-    /**
      * 活动ID
      */
     private Long activityId;
     /**
-     * 活动名称
+     * 可领取次数
      */
-    private String activityName;
+    private Integer totalCount;
     /**
-     * 活动领取时间
+     * 已领取次数
      */
-    private Date takeDate;
-    /**
-     * 领取次数
-     */
-    private Integer takeCount;
-    /**
-     * 防重ID
-     */
-    private String uuid;
+    private Integer leftCount;
     /**
      * 创建时间
      */
@@ -47,7 +31,6 @@ public class UserTakeActivity {
      * 更新时间
      */
     private Date updateTime;
-
 
     public Long getId() {
         return id;
@@ -65,14 +48,6 @@ public class UserTakeActivity {
         this.uId = uId;
     }
 
-    public Long getTakeId() {
-        return takeId;
-    }
-
-    public void setTakeId(Long takeId) {
-        this.takeId = takeId;
-    }
-
     public Long getActivityId() {
         return activityId;
     }
@@ -81,36 +56,20 @@ public class UserTakeActivity {
         this.activityId = activityId;
     }
 
-    public String getActivityName() {
-        return activityName;
+    public Integer getTotalCount() {
+        return totalCount;
     }
 
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
     }
 
-    public Date getTakeDate() {
-        return takeDate;
+    public Integer getLeftCount() {
+        return leftCount;
     }
 
-    public void setTakeDate(Date takeDate) {
-        this.takeDate = takeDate;
-    }
-
-    public Integer getTakeCount() {
-        return takeCount;
-    }
-
-    public void setTakeCount(Integer takeCount) {
-        this.takeCount = takeCount;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setLeftCount(Integer leftCount) {
+        this.leftCount = leftCount;
     }
 
     public Date getCreateTime() {
@@ -128,6 +87,5 @@ public class UserTakeActivity {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-
 
 }

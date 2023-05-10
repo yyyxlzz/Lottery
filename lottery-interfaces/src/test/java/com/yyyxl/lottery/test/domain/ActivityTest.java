@@ -4,12 +4,15 @@ import com.alibaba.fastjson.JSON;
 import com.yyyxl.lottery.common.Constants;
 import com.yyyxl.lottery.domain.activity.model.aggregates.ActivityConfigRich;
 import com.yyyxl.lottery.domain.activity.model.req.ActivityConfigReq;
+import com.yyyxl.lottery.domain.activity.model.req.PartakeReq;
+import com.yyyxl.lottery.domain.activity.model.res.PartakeResult;
 import com.yyyxl.lottery.domain.activity.model.vo.ActivityVO;
 import com.yyyxl.lottery.domain.activity.model.vo.AwardVO;
 import com.yyyxl.lottery.domain.activity.model.vo.StrategyDetailVO;
 import com.yyyxl.lottery.domain.activity.model.vo.StrategyVO;
 import com.yyyxl.lottery.domain.activity.service.deploy.IActivityDeploy;
 import com.yyyxl.lottery.domain.activity.service.deploy.impl.ActivityDeployImpl;
+import com.yyyxl.lottery.domain.activity.service.partake.IActivityPartake;
 import com.yyyxl.lottery.domain.activity.service.stateflow.IStateHandler;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +42,9 @@ public class ActivityTest {
 
     @Resource
     private IStateHandler stateHandler;
+
+    @Resource
+    private IActivityPartake activityPartake;
 
     private ActivityConfigRich activityConfigRich;
 
@@ -170,6 +176,17 @@ public class ActivityTest {
         logger.info("运行活动，测试：{}", JSON.toJSONString(stateHandler.doing(120981321L, Constants.ActivityState.PASS)));
         logger.info("二次提审，测试：{}", JSON.toJSONString(stateHandler.checkPass(120981321L, Constants.ActivityState.EDIT)));
         logger.info("关闭，测试：{}", JSON.toJSONString(stateHandler.close(120981321L, Constants.ActivityState.CLOSE)));
+
+    }
+
+    @Test
+    public void test_activityPartake(){
+        Date date = new Date(2021/8/4);
+        PartakeReq req = new PartakeReq("Uhdgkw766120d", 100001L,date);
+        PartakeResult res = activityPartake.doPartake(req);
+        logger.info("请求参数：{}", JSON.toJSONString(req));
+        logger.info("测试结果：{}", JSON.toJSONString(res));
+
 
     }
 
