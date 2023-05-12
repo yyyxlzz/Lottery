@@ -69,7 +69,7 @@
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
 
-        <!--业务包-->
+        <!-- 业务包 -->
         <dependency>
             <groupId>com.yyyxl</groupId>
             <artifactId>lottery-infrastructure</artifactId>
@@ -85,7 +85,12 @@
             <artifactId>lottery-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.yyyxl</groupId>
+            <artifactId>lottery-application</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -123,6 +128,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

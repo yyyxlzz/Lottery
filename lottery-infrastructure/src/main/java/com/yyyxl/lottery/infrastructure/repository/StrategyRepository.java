@@ -11,6 +11,8 @@ import com.yyyxl.lottery.infrastructure.dao.IStrategyDetailDao;
 import com.yyyxl.lottery.infrastructure.po.Award;
 import com.yyyxl.lottery.infrastructure.po.Strategy;
 import com.yyyxl.lottery.infrastructure.po.StrategyDetail;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +23,7 @@ import java.util.List;
 @Component
 public class StrategyRepository implements IStrategyRepository {
 
-
+    private Logger logger = LoggerFactory.getLogger(StrategyRepository.class);
     @Resource
     private IStrategyDao strategyDao;
 
@@ -34,6 +36,7 @@ public class StrategyRepository implements IStrategyRepository {
     @Override
     public StrategyRich queryStrategyRich(Long strategyId) {
         Strategy strategy = strategyDao.queryStrategy(strategyId);
+
         List<StrategyDetail> strategyDetailList = strategyDetailDao.queryStrategyDetailList(strategyId);
 
         StrategyBriefVO strategyBriefVO = new StrategyBriefVO();

@@ -11,7 +11,6 @@ import com.yyyxl.lottery.domain.activity.model.vo.AwardVO;
 import com.yyyxl.lottery.domain.activity.model.vo.StrategyDetailVO;
 import com.yyyxl.lottery.domain.activity.model.vo.StrategyVO;
 import com.yyyxl.lottery.domain.activity.service.deploy.IActivityDeploy;
-import com.yyyxl.lottery.domain.activity.service.deploy.impl.ActivityDeployImpl;
 import com.yyyxl.lottery.domain.activity.service.partake.IActivityPartake;
 import com.yyyxl.lottery.domain.activity.service.stateflow.IStateHandler;
 import org.junit.Before;
@@ -35,7 +34,7 @@ import java.util.List;
 @SpringBootTest
 public class ActivityTest {
 
-    private Logger logger = LoggerFactory.getLogger(ActivityDeployImpl.class);
+    private Logger logger = LoggerFactory.getLogger(ActivityTest.class);
 
     @Resource
     private IActivityDeploy activityDeploy;
@@ -54,7 +53,8 @@ public class ActivityTest {
     private Long activityId = 120981321L;
 
     @Before
-    public void init(){
+    public void init() {
+
         ActivityVO activity = new ActivityVO();
         activity.setActivityId(activityId);
         activity.setActivityName("测试活动");
@@ -63,8 +63,10 @@ public class ActivityTest {
         activity.setEndDateTime(new Date());
         activity.setStockCount(100);
         activity.setTakeCount(10);
+        activity.setStrategyId(10001L);
         activity.setState(Constants.ActivityState.EDIT.getCode());
         activity.setCreator("xiaofuge");
+
 
         StrategyVO strategy = new StrategyVO();
         strategy.setStrategyId(10002L);
@@ -161,7 +163,6 @@ public class ActivityTest {
         awardList.add(award_05);
 
         activityConfigRich = new ActivityConfigRich(activity, strategy, awardList);
-
     }
 
     @Test
@@ -170,24 +171,19 @@ public class ActivityTest {
     }
 
     @Test
-    public void test_alterState(){
-        logger.info("提交审核，测试：{}", JSON.toJSONString(stateHandler.arraignment(120981321L, Constants.ActivityState.EDIT)));
-        logger.info("审核通过，测试：{}", JSON.toJSONString(stateHandler.checkPass(120981321L, Constants.ActivityState.ARRAIGNMENT)));
-        logger.info("运行活动，测试：{}", JSON.toJSONString(stateHandler.doing(120981321L, Constants.ActivityState.PASS)));
-        logger.info("二次提审，测试：{}", JSON.toJSONString(stateHandler.checkPass(120981321L, Constants.ActivityState.EDIT)));
-        logger.info("关闭，测试：{}", JSON.toJSONString(stateHandler.close(120981321L, Constants.ActivityState.CLOSE)));
-
+    public void test_alterState() {
+        logger.info("提交审核，测试：{}", JSON.toJSONString(stateHandler.arraignment(100001L, Constants.ActivityState.EDIT)));
+        logger.info("审核通过，测试：{}", JSON.toJSONString(stateHandler.checkPass(100001L, Constants.ActivityState.ARRAIGNMENT)));
+        logger.info("运行活动，测试：{}", JSON.toJSONString(stateHandler.doing(100001L, Constants.ActivityState.PASS)));
+        logger.info("二次提审，测试：{}", JSON.toJSONString(stateHandler.checkPass(100001L, Constants.ActivityState.EDIT)));
     }
 
     @Test
-    public void test_activityPartake(){
-        Date date = new Date(2021/8/4);
-        PartakeReq req = new PartakeReq("Uhdgkw766120d", 100001L,date);
+    public void test_activityPartake() {
+        PartakeReq req = new PartakeReq("Uhdgkw766120d", 100001L);
         PartakeResult res = activityPartake.doPartake(req);
         logger.info("请求参数：{}", JSON.toJSONString(req));
         logger.info("测试结果：{}", JSON.toJSONString(res));
-
-
     }
 
 }

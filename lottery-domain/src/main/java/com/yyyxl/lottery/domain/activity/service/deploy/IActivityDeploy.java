@@ -2,6 +2,9 @@ package com.yyyxl.lottery.domain.activity.service.deploy;
 
 import com.yyyxl.lottery.domain.activity.model.req.ActivityConfigReq;
 
+/**
+ * 部署活动配置接口
+ */
 public interface IActivityDeploy {
     /**
      * 创建活动

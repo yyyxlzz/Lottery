@@ -66,7 +66,7 @@ public class ActivityRepository implements IActivityRepository {
 
     @Override
     public boolean alterStatus(Long activityId, Enum<Constants.ActivityState> beforeState, Enum<Constants.ActivityState> afterState) {
-        AlterStateVO alterStateVO = new AlterStateVO(activityId,((Constants.ActivityState) beforeState).getCode(),((Constants.ActivityState) afterState).getCode());
+        AlterStateVO alterStateVO = new AlterStateVO(activityId, ((Constants.ActivityState) beforeState).getCode(), ((Constants.ActivityState) afterState).getCode());
         int count = activityDao.alterState(alterStateVO);
         return 1 == count;
     }
@@ -78,9 +78,9 @@ public class ActivityRepository implements IActivityRepository {
         Activity activity = activityDao.queryActivityById(req.getActivityId());
 
         // 查询领取次数
-        UserTakeActivityCount userTakeActivityCountReq  = new UserTakeActivityCount();
+        UserTakeActivityCount userTakeActivityCountReq = new UserTakeActivityCount();
         userTakeActivityCountReq.setuId(req.getuId());
-        userTakeActivityCountReq .setActivityId(req.getActivityId());
+        userTakeActivityCountReq.setActivityId(req.getActivityId());
         UserTakeActivityCount userTakeActivityCount = userTakeActivityCountDao.queryUserTakeActivityCount(userTakeActivityCountReq);
 
         // 封装结果信息
