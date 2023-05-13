@@ -15,12 +15,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Repository
 public class StrategyRepository implements IStrategyRepository {
 
     private Logger logger = LoggerFactory.getLogger(StrategyRepository.class);
