@@ -6,6 +6,7 @@ import com.yyyxl.lottery.domain.rule.model.res.EngineResult;
 import com.yyyxl.lottery.domain.rule.model.vo.TreeNodeVO;
 import com.yyyxl.lottery.domain.rule.repository.IRuleRepository;
 import com.yyyxl.lottery.domain.rule.service.engine.EngineBase;
+import com.yyyxl.lottery.domain.rule.service.engine.EngineFilter;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

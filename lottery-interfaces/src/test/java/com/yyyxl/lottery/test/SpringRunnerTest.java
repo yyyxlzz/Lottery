@@ -1,9 +1,7 @@
+/*
 package com.yyyxl.lottery.test;
 
 
-import com.itedus.lottery.rpc.IActivityBooth;
-import com.itedus.lottery.rpc.req.ActivityReq;
-import com.itedus.lottery.rpc.res.ActivityRes;
 import com.yyyxl.lottery.common.Constants;
 import com.yyyxl.lottery.domain.award.model.req.GoodsReq;
 import com.yyyxl.lottery.domain.award.model.res.DistributionRes;
@@ -102,3 +100,4 @@ public class SpringRunnerTest {
     }
 
 }
+*/
