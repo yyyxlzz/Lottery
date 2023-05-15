@@ -82,6 +82,11 @@
         </dependency>
         <!-- MapStruct end -->
 
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
         <!-- 业务包 -->
         <dependency>
             <groupId>com.yyyxl</groupId>
