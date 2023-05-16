@@ -2,7 +2,6 @@ package com.yyyxl.lottery.test.dao;
 
 import com.alibaba.fastjson.JSON;
 import com.yyyxl.lottery.common.Constants;
-import com.yyyxl.lottery.domain.support.ids.IIdGenerator;
 import com.yyyxl.lottery.domain.support.ids.IdContext;
 import com.yyyxl.lottery.infrastructure.dao.IUserStrategyExportDao;
 import com.yyyxl.lottery.infrastructure.po.UserStrategyExport;
@@ -15,8 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @description: 用户策略计算结果表Dao测试

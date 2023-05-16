@@ -1,7 +1,9 @@
 package com.yyyxl.lottery.test.application;
 
-import com.yyyxl.lottery.application.mq.KafkaConsumer;
-import com.yyyxl.lottery.application.mq.KafkaProducer;
+import com.yyyxl.lottery.application.mq.consumer.LotteryInvoiceListener;
+import com.yyyxl.lottery.application.mq.producer.KafkaProducer;
+import com.yyyxl.lottery.common.Constants;
+import com.yyyxl.lottery.domain.activity.model.vo.InvoiceVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,19 +20,26 @@ import javax.annotation.Resource;
 @SpringBootTest
 public class KafkaProducerTest {
 
-    private Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
+    private Logger logger = LoggerFactory.getLogger(LotteryInvoiceListener.class);
 
     @Resource
-    private KafkaProducer producer;
+    private KafkaProducer kafkaProducer;
 
     @Test
     public void test_send() throws InterruptedException {
-        // 循环发送消息
+        InvoiceVO invoice = new InvoiceVO();
+        invoice.setuId("fustack");
+        invoice.setOrderId(1444540456057864192L);
+        invoice.setAwardId("3");
+        invoice.setAwardType(Constants.AwardType.DESC.getCode());
+        invoice.setAwardName("Code");
+        invoice.setAwardContent("苹果电脑");
+        invoice.setShippingAddress(null);
+        invoice.setExtInfo(null);
+        kafkaProducer.sendLotteryInvoice(invoice);
+
         while (true) {
-            producer.send("你好，我是Lottery 001");
-            Thread.sleep(3500);
+            Thread.sleep(10000);
         }
     }
-
-
 }
